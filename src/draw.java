@@ -8,23 +8,26 @@ import javax.swing.*;
 
 public class draw extends JPanel {
     public draw() {
-        setBackground(Color.white);
+        setBackground(Color.WHITE);
         setPreferredSize(new Dimension(1200, 600));
     }
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawRect(100, 100, 100, 100);
-        g.drawString("START", 110, 150);
-        g.drawRect(200, 100, 100, 100);
+        for (int i = 1; i < 10; ++i) {
+            g.drawRect(100 * i, 100, 100, 100);
+        }
+        for (int i = 100; i <= 400; i += 100) {
+            g.drawRect(1000, i, 100, 100);
+        }
+        for (int i = 1000; i >= 100; i -= 100) {
+            g.drawRect(i, 400, 100, 100);
+        }
+        g.setFont(new Font("Arial", Font.BOLD, 14));
+        g.drawString("START", 130, 155);
         g.drawString("+100", 210, 150);
-        g.drawRect(300, 100, 100, 100);
         g.drawString("-100", 310, 150);
-        g.drawRect(400, 100, 100, 100);
-        g.drawRect(400, 200, 100, 100);
-        g.drawRect(400, 300, 100, 100);
-        g.drawRect(400, 400, 100, 100);
-        g.drawRect(300, 400, 100, 100);
+        g.drawString("GOAL", 130, 455);
     }
 
     public static void main(String args[]) {
